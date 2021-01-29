@@ -25,27 +25,29 @@ export default class Fish extends Sprite {
    * @private
    */
   _onPointerUp() {
-    this._expand();
+    this.expand();
     setTimeout(() => {
-      this._contract();
+      this.contract();
     }, 5000);
   }
 
   /**
    * @private
    */
-  _expand() {
+  expand() {
     this.texture = Texture.from('big');
-
-    gsap.to(this.scale, { x: 1.5, y: 1.5, duration: 1, ease: 'elastic' });
+    this.scale.x = 1.5;
+    this.scale.y = 1.5;
+    // gsap.to(this.scale, { x: 1.5, y: 1.5, duration: 1, ease: 'elastic' });
   }
 
   /**
    * @private
    */
-  _contract() {
+  contract() {
     this.texture = Texture.from('small');
-    
-    gsap.to(this.scale, { x: 1, y: 1, duration: 1, ease: 'elastic' });
+    this.scale.x = 1;
+    this.scale.y = 1;
+    // gsap.to(this.scale, { x: 1, y: 1, duration: 1, ease: 'elastic' });
   }
 }
